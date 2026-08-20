@@ -444,22 +444,22 @@ const CATEGORIES = [
 
 const SECTIONS = [
   {title:"Fresh Picks",cat:"Fruits",products:[
-    {id:1,name:"Fresh Tomatoes",unit:"500 g",price:28,mrp:35,image:"https://placehold.co/300x220/CCFF00/000000?text=Tomato",tag:"20% OFF"},
-    {id:2,name:"Amul Toned Milk",unit:"1 L pouch",price:66,mrp:null,image:"https://placehold.co/300x220/E6E1FF/000000?text=Milk",tag:"HOT"},
-    {id:3,name:"Farm Bananas",unit:"6 pcs",price:42,mrp:48,image:"https://placehold.co/300x220/FF5E00/FFFFFF?text=Banana",tag:null},
-    {id:4,name:"Brown Bread",unit:"400 g",price:45,mrp:null,image:"https://placehold.co/300x220/00F0FF/000000?text=Bread",tag:null},
+    {id:1,name:"Fresh Tomatoes",unit:"500 g",price:28,mrp:35,image:"https://loremflickr.com/300/220/tomatoes,vegetable/all",tag:"20% OFF"},
+    {id:2,name:"Amul Toned Milk",unit:"1 L pouch",price:66,mrp:null,image:"https://loremflickr.com/300/220/milk,dairy/all",tag:"HOT"},
+    {id:3,name:"Farm Bananas",unit:"6 pcs",price:42,mrp:48,image:"https://loremflickr.com/300/220/bananas,fruit/all",tag:null},
+    {id:4,name:"Brown Bread",unit:"400 g",price:45,mrp:null,image:"https://loremflickr.com/300/220/bread,bakery/all",tag:null},
   ]},
   {title:"Snacks & Munchies",cat:"Snacks",products:[
-    {id:5,name:"Lays Classic Salted",unit:"52 g",price:20,mrp:null,image:"https://placehold.co/300x220/FF5E00/FFFFFF?text=Chips",tag:null},
-    {id:6,name:"Parle-G Biscuits",unit:"250 g",price:30,mrp:35,image:"https://placehold.co/300x220/CCFF00/000000?text=Biscuit",tag:"20% OFF"},
-    {id:7,name:"Roasted Peanuts",unit:"200 g",price:55,mrp:null,image:"https://placehold.co/300x220/E6E1FF/000000?text=Peanuts",tag:null},
-    {id:8,name:"Maggi Noodles",unit:"pack of 4",price:56,mrp:64,image:"https://placehold.co/300x220/00F0FF/000000?text=Maggi",tag:"HOT"},
+    {id:5,name:"Lays Classic Salted",unit:"52 g",price:20,mrp:null,image:"https://loremflickr.com/300/220/potatochips,snack/all",tag:null},
+    {id:6,name:"Parle-G Biscuits",unit:"250 g",price:30,mrp:35,image:"https://loremflickr.com/300/220/biscuits,snack/all",tag:"20% OFF"},
+    {id:7,name:"Roasted Peanuts",unit:"200 g",price:55,mrp:null,image:"https://loremflickr.com/300/220/biscuits,snack/all",tag:null},
+    {id:8,name:"Maggi Noodles",unit:"pack of 4",price:56,mrp:64,image:"https://loremflickr.com/300/220/noodles,instantnoodles/all",tag:"HOT"},
   ]},
   {title:"Daily Essentials",cat:"Grains",products:[
-    {id:9,name:"Tata Salt",unit:"1 kg",price:25,mrp:null,image:"https://placehold.co/300x220/CCFF00/000000?text=Salt",tag:null},
-    {id:10,name:"Fortune Sunflower Oil",unit:"1 L",price:145,mrp:160,image:"https://placehold.co/300x220/FF5E00/FFFFFF?text=Oil",tag:"9% OFF"},
-    {id:11,name:"Toor Dal",unit:"1 kg",price:132,mrp:null,image:"https://placehold.co/300x220/E6E1FF/000000?text=Dal",tag:null},
-    {id:12,name:"Basmati Rice",unit:"1 kg",price:98,mrp:110,image:"https://placehold.co/300x220/00F0FF/000000?text=Rice",tag:null},
+    {id:9,name:"Tata Salt",unit:"1 kg",price:25,mrp:null,image:"https://loremflickr.com/300/220/salt,seasoning/all",tag:null},
+    {id:10,name:"Fortune Sunflower Oil",unit:"1 L",price:145,mrp:160,image:"https://loremflickr.com/300/220/cookingoil,bottle/all",tag:"9% OFF"},
+    {id:11,name:"Toor Dal",unit:"1 kg",price:132,mrp:null,image:"https://loremflickr.com/300/220/lentils,dal/all",tag:null},
+    {id:12,name:"Basmati Rice",unit:"1 kg",price:98,mrp:110,image:"https://loremflickr.com/300/220/rice,grain/all",tag:null},
   ]},
 ];
 
@@ -500,7 +500,7 @@ function productCard(p){
   const qty = store.cart[p.id] || 0;
   return `
     <div class="card">
-      <div class="card-img"><img src="${p.image}" alt="${p.name}">
+      <div class="card-img"><img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/${p.id}/300/220';">
         ${p.tag ? `<span class="badge ${p.tag.includes('OFF')?'discount':''}">${p.tag}</span>` : ''}
       </div>
       <h4>${p.name}</h4>
